@@ -1,0 +1,45 @@
+Q.      Processes in a particular OS make multiple requests. This OS uses a banker’s algorithm designed for a single resource class to implement deadlock avoidance as follows: 
+        When a process requests resource units of some n resource classes, the request is viewed as a set of n single requests; e.g., a multiple request (2, 1, 3)
+        would be viewed as three single requests (2, 0, 0), (0, 1, 0), and (0, 0, 3). The multiple requests are granted only if each single request would have been granted 
+        in the current allocation state of the system. Is this a sound approach to deadlock avoidance? Justify your answer by giving one safe sequence.
+        
+Answer:
+
+        if __name__=="__main__":
+          process = 4
+          resource = 3
+          allocated = [[0, 1, 0 ],[ 2, 0, 0 ],[3, 0, 2 ],[2, 1, 1]]
+          maximum = [[7, 5, 3 ],[3, 2, 2 ],[ 9, 0, 2 ],[2, 2, 2]]
+          available = [3, 4, 2]
+
+          p = process*[0]
+          q = process*[0]
+          index = 0
+          for k in range(process):
+              p[k] = 0
+
+          need = [[ 0 for i in range(resource)]for i in range(process)]
+          for i in range(process):
+              for j in range(resource):
+                  need[i][j] = maximum[i][j] - allocated[i][j]
+          y = 0
+          for k in range(4):
+              for i in range(process):
+                  if (p[i] == 0):
+                      flag = 0
+                      for j in range(resource):
+                          if (need[i][j] > available[j]):
+                              flag = 1
+                              break
+
+                      if (flag == 0):
+                          q[index] = i
+                          index += 1
+                          for y in range(resource):
+                              available[y] += allocated[i][y]
+                          p[i] = 1
+
+          print("Safe sequence is : ", end=" ")
+          for i in range(process - 1):
+              print(" P", q[i], " , ", sep="", end="")
+          print(" P", q[process - 1], sep="")
