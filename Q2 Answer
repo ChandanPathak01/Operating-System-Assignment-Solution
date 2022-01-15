@@ -1,0 +1,6 @@
+Q.      Create a calculator process which accepts equation from other processes and returns the result.
+        Notes: Use Inter process communication system calls, Pipe/FIFO or Message Queue.
+        
+Sol :   
+        
+        
