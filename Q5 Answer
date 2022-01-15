@@ -24,9 +24,11 @@ Sol:
       return 0;
       }
       
+      
+      
       //cpuinfo
+      
       #include <stdio.h>
-
       int main() {
           char cpuinfo;
           FILE *fp = fopen("/proc/xcpuinfo", "r");
