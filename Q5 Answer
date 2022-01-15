@@ -2,7 +2,7 @@ Q.    A new computer system with Linux based operating system needs to be verifi
       Cache extra information.
       Note: Use meminfo and CPU info from proc directory.
 
-Ans : 
+Sol: 
      
       #include<stdio.h>
       #include<unistd.h>
