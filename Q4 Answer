@@ -3,7 +3,7 @@ Q.      Processes in a particular OS make multiple requests. This OS uses a bank
         would be viewed as three single requests (2, 0, 0), (0, 1, 0), and (0, 0, 3). The multiple requests are granted only if each single request would have been granted 
         in the current allocation state of the system. Is this a sound approach to deadlock avoidance? Justify your answer by giving one safe sequence.
         
-Answer:
+Answer: 
 
         if __name__=="__main__":
           process = 4
